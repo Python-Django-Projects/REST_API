@@ -15,10 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from blog.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('rest/generics/', ImageList.as_view()),
-    path('rest/generics/<int:pk>', ImageDestroy.as_view()),
+    path('',include('blog.urls')),
+    path('api-auth/', include('rest_framework.urls')),
 ]
